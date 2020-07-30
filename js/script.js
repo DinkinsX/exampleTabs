@@ -1,13 +1,14 @@
-//загрузка css и сторонних
-// window.addEventListener('load') {
-// };
+let blockTabs = '.info-header',
+    singleTab = '.info-header-tab',
+    contentTab = '.info-tabcontent';
 
 window.addEventListener('DOMContentLoaded', function() {
     'use strict'; 
-    console.log('start');
-    let tab = document.querySelectorAll('.info-header-tab'),
-        info = document.querySelector('.info-header'), //родитель
-        tabContent = document.querySelectorAll('.info-tabcontent');
+
+    let tab = document.querySelectorAll(singleTab),
+        info = document.querySelector(blockTabs), //parent
+        tabContent = document.querySelectorAll(contentTab);
+
 
     function hideTabContent(a) {
         for (let i = a; i < tabContent.length; i++) {
@@ -16,10 +17,10 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
     }
-    hideTabContent(1);
+    hideTabContent(1); // how many tabs show on start
 
     function showTabContent(b) {
-        if (tabContent[b].classList.contains('hide')) { //проверяем на хайд
+        if (tabContent[b].classList.contains('hide')) { //check hide
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
         }
@@ -27,7 +28,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     info.addEventListener('click', function(event) {
         let target = event.target;
-        if (target && target.classList.contains('info-header-tab')) {
+        if (target && target.classList.contains(singleTab.slice(1))) { 
             for(let i = 0; i < tab.length; i++) {
                 if (target == tab[i]) {
                     hideTabContent(0);
@@ -37,4 +38,5 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
 });
