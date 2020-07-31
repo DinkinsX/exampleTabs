@@ -2,7 +2,7 @@ let blockTabs = '.info-header',
     singleTab = '.info-header-tab',
     contentTab = '.info-tabcontent';
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() { //сработает после прогрузки древа html
     'use strict'; 
 
     let tab = document.querySelectorAll(singleTab),
